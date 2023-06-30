@@ -1,0 +1,19 @@
+
+
+-- Demarrer jenkins
+cd scripts
+chmod u+x *.sh
+./start.sh
+
+-- Recuperer la cle en entrant dans le container jenkins
+docker exec -it jenkins-blueocean bash
+cat /var/jenkins_home/secrets/initialAdminPassword
+
+-- Dans le navigateur, creer le pipeline de deploiement de type "pipeline"
+
+-- Si erreur lors du lancement du pipeline "dial tcp: lookup docker: Temporary failure in name resolution"
+sudo vi /etc/resolv.conf
+# Et ajouter les lignes pour le DNS :
+nameserver 8.8.4.4
+nameserver 8.8.8.8
+

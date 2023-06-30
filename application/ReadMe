@@ -1,0 +1,23 @@
+
+# Pour tester l'application Web en local 
+docker build -t monappliweb .
+docker run -d --name monserveur -p 8081:80 monappliweb
+
+
+
+# Pour tester l'application Web finale livree sur docker hub 
+docker stop monserver
+docker rm monserveur
+docker rmi <votre login dockerhub>/<votre repo dockerhub>:1.0
+docker run -d --name monserver -p 8081:80 <votre login dockerhub>/<votre repo dockerhub>:1.0
+
+
+
+
+
+# Si erreur lors du lancement du pipeline : dial tcp: lookup docker: Temporary failure in name resolution
+sudo vi /etc/resolv.conf
+# Et ajouter les lignes pour le DNS :
+nameserver 8.8.4.4
+nameserver 8.8.8.8
+

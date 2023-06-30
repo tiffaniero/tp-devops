@@ -1,0 +1,32 @@
+####### Configuration global de git ##########
+git config --global core.eol lf
+git config --global core.autocrlf input
+git config --global user.email <votre email>
+
+
+####### Creation d'un depot distant #########
+-- Aller sur https://github.com/<login> et creer un nouveau depot 
+
+####### Copie des sources dans le prepertoire de travail ########
+git clone https://github.com/fpicot31/jenkinsTP.git
+rm -rf .git
+
+####### Configuration du repertoire de travail ##########
+git init
+git remote add origin https://github.com/<votre login>/<votre depot>.git
+git push -u origin master
+
+####### Push d'une modification du repertoire de travail ####### 
+git add .
+git commit -m "init depot"
+git push
+
+##################  Commandes utiles #############
+-- si pb git
+sudo apt-get purge git
+sudo apt-get autoremove
+sudo apt-get install git
+
+-- si besoin de changer de user
+git config --global credential.username <user name git>
+
